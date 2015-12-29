@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @audit.errors.any? %>
+  <% @audit.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $(".audit-index").html("<%= escape_javascript(render 'index') %>")
+  $("#audit-modal").modal("hide")
+<% end %>

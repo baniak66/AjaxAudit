@@ -1,0 +1,10 @@
+.modal-dialog
+  .modal-content
+  .modal-header
+    %h3 Delete audit
+  .modal-body
+  %ul.errors
+  Are you sure you wish to delete #{@audit.name}
+  .modal-footer
+    = link_to "Yes, Delete This audit", audit_path(@audit), method: :delete, remote: true, class: "btn btn-danger"
+    = link_to "No, Please Don't", "#", class: "btn btn-default", data: { dismiss: "modal" }

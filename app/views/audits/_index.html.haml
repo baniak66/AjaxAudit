@@ -1,0 +1,22 @@
+- @audits.each do |audit|
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        %b
+          = audit.name
+        | Start date:
+        = audit.startDate
+        | End date:
+        = audit.endDate
+        = link_to "Edit", edit_audit_path(audit), remote: true, class: "btn btn-default"
+        = link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
+    .panel-body
+      Add a task!
+
+
+  / %tr
+  /   %td= audit.name
+  /   %td= audit.startDate
+  /   %td= audit.endDate
+  /   %td= link_to "Edit", edit_audit_path(audit), remote: true, class: "btn btn-default"
+  /   %td= link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
