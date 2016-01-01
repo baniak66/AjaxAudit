@@ -2,16 +2,7 @@
   .well
     =link_to "New Audit", new_audit_path, remote: true, class: "btn btn-primary"
   .new-audit
-  / .table.table-bordered.table-striped
-  /   %thead
-  /     %tr
-  /       %th Name
-  /       %th Start date
-  /       %th End date
-  /       %th &nbsp;
-  /       %th &nbsp;
-  /   %tbody.audit-index
   .audit-index
-    =render "index"
+    =render "audits/index"
 #audit-modal.modal.fade
 

@@ -11,12 +11,7 @@
         = link_to "Edit", edit_audit_path(audit), remote: true, class: "btn btn-default"
         = link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
     .panel-body
-      Add a task!
-
-
-  / %tr
-  /   %td= audit.name
-  /   %td= audit.startDate
-  /   %td= audit.endDate
-  /   %td= link_to "Edit", edit_audit_path(audit), remote: true, class: "btn btn-default"
-  /   %td= link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
+      - audit.tasks.each do |task|
+        %h5= task.descr
+      = render "tasks/form", audit: audit
+      / = link_to "Add a task!", new_task_path(audit_id: audit.id), class: "btn btn-default"
