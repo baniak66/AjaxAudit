@@ -2,6 +2,7 @@ class AuditsController < ApplicationController
 
   def index
     @audits = Audit.all
+    @task = Task.new
   end
 
   def show
