@@ -16,6 +16,7 @@ class AuditsController < ApplicationController
   def create
     @audits = Audit.all
     @audit = Audit.create(audit_params)
+    @task = Task.new
   end
 
   def edit
@@ -25,6 +26,7 @@ class AuditsController < ApplicationController
   def update
     @audits = Audit.all
     @audit = Audit.find(params[:id])
+    @task = Task.new
 
     @audit.update_attributes(audit_params)
   end
@@ -34,6 +36,7 @@ class AuditsController < ApplicationController
   end
 
   def destroy
+    @task = Task.new
     @audits = Audit.all
     @audit = Audit.find(params[:id])
     @audit.destroy
