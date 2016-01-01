@@ -5,7 +5,12 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.audit_id = params[:audit_id]
     @task.save
-    render "index"
+  end
+
+  def destroy
+    @audits = Audit.all
+    @task = Task.find(params[:id])
+    @task.destroy
   end
 
 private

@@ -12,6 +12,5 @@
         = link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
     .panel-body
       - audit.tasks.each do |task|
-        %h5= task.descr
+        %h5 #{task.descr} #{link_to "Delete", task_path(id: task.id), remote: true, method: :delete, class: "btn btn-danger"}
       = render "tasks/form", audit: audit
-      / = link_to "Add a task!", new_task_path(audit_id: audit.id), class: "btn btn-default"
