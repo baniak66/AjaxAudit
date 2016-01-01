@@ -1,13 +1,11 @@
 class TasksController < ApplicationController
 
-  def index
-    @audit = Audit.find(params[:audit_id])
-    @tasks = @audit.tasks.all
-  end
-
-  def new
-    @audit = Audit.find(params[:audit_id])
-    @task = @audit.tasks.create(task_params)
+  def create
+    @audits = Audit.all
+    @task = Task.new(task_params)
+    @task.audit_id = params[:audit_id]
+    @task.save
+    render "index"
   end
 
 private
