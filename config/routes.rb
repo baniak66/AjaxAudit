@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   resources :audits do
-    resources :tasks
     get 'delete'
   end
+  resources :tasks
 
   root 'audits#index'
 end
