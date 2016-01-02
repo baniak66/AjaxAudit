@@ -1,6 +1,10 @@
 .container
-  .well
-    =link_to "New Audit", new_audit_path, remote: true, class: "btn btn-primary"
+  .audit-counter  
+    =render "counter"
+  / .well
+  /   %h2 You have #{pluralize(Audit.all.count, 'audit')} active.
+
+  /   =link_to "New Audit", new_audit_path, remote: true, class: "btn btn-primary"
   .new-audit
   .audit-index
     =render "audits/index"

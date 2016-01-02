@@ -11,6 +11,10 @@
         = link_to "Edit", edit_audit_path(audit), remote: true, class: "btn btn-default"
         = link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
     .panel-body
-      - audit.tasks.each do |task|
-        %h5 #{task.descr} #{link_to "Delete", task_path(id: task.id), remote: true, method: :delete, class: "btn btn-danger"}
+      -if audit.tasks.empty?
+        You haven't added any tasks
+      -else
+        %ul
+          - audit.tasks.each do |task|
+            %li #{task.descr} #{link_to glyph("remove-circle"), task_path(id: task.id), remote: true, method: :delete}
       = render "tasks/form", audit: audit
