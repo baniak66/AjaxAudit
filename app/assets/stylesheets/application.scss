@@ -13,3 +13,18 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.modal-header {
+  background-color: black;
+  color: white;
+}
+
+.modal-body {
+  background-color: white;
+  color: black;
+}
+
+.modal-footer {
+  background-color: white;
+  color: black;
+}
