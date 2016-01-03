@@ -1,5 +1,8 @@
 class AuditsController < ApplicationController
 
+  def welcome
+  end
+
   def index
     @audits = Audit.all
     @task = Task.new
