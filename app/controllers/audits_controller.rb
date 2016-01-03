@@ -1,11 +1,12 @@
 class AuditsController < ApplicationController
+  before_action :set_audit, only: [:update, :destroy]
+  before_action :set_audits, only: [:index, :create, :update, :destroy]
+  before_action :set_task, only: [:index, :create, :update, :destroy]
 
   def welcome
   end
 
   def index
-    @audits = Audit.all
-    @task = Task.new
   end
 
   def show
@@ -17,9 +18,7 @@ class AuditsController < ApplicationController
   end
 
   def create
-    @audits = Audit.all
     @audit = Audit.create(audit_params)
-    @task = Task.new
   end
 
   def edit
@@ -27,10 +26,6 @@ class AuditsController < ApplicationController
   end
 
   def update
-    @audits = Audit.all
-    @audit = Audit.find(params[:id])
-    @task = Task.new
-
     @audit.update_attributes(audit_params)
   end
 
@@ -39,14 +34,23 @@ class AuditsController < ApplicationController
   end
 
   def destroy
-    @task = Task.new
-    @audits = Audit.all
-    @audit = Audit.find(params[:id])
     @audit.destroy
   end
 
 private
   def audit_params
     params.require(:audit).permit(:name, :startDate, :endDate)
+  end
+
+  def set_audit
+    @audit = Audit.find(params[:id])
+  end
+
+  def set_audits
+    @audits = Audit.all
+  end
+
+  def set_task
+    @task = Task.new
   end
 end
