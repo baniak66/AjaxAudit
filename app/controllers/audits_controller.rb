@@ -2,27 +2,27 @@ class AuditsController < ApplicationController
   before_action :set_audit, only: [:update, :destroy]
   before_action :set_audits, only: [:index, :create, :update, :destroy]
   before_action :set_task, only: [:index, :create, :update, :destroy]
+  before_action :authenticate_user!, except: [:welcome]
 
   def welcome
+    if user_signed_in?
+      redirect_to audits_path
+    end
   end
 
   def index
   end
 
-  def show
-    @product = Audit.find(params[:id])
-  end
-
   def new
-    @audit = Audit.new
+    @audit = current_user.audits.new
   end
 
   def create
-    @audit = Audit.create(audit_params)
+    @audit = current_user.audits.create(audit_params)
   end
 
   def edit
-    @audit = Audit.find(params[:id])
+    @audit = current_user.audits.find(params[:id])
   end
 
   def update
@@ -30,7 +30,7 @@ class AuditsController < ApplicationController
   end
 
   def delete
-    @audit = Audit.find(params[:audit_id])
+    @audit = current_user.audits.find(params[:audit_id])
   end
 
   def destroy
@@ -39,15 +39,15 @@ class AuditsController < ApplicationController
 
 private
   def audit_params
-    params.require(:audit).permit(:name, :startDate, :endDate)
+    params.require(:audit).permit(:name, :startDate, :endDate, :user_id)
   end
 
   def set_audit
-    @audit = Audit.find(params[:id])
+    @audit = current_user.audits.find(params[:id])
   end
 
   def set_audits
-    @audits = Audit.all
+    @audits = current_user.audits.all
   end
 
   def set_task
