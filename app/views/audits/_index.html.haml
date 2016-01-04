@@ -1,4 +1,4 @@
-- @audits.each do |audit|
+- @audits.order(:endDate).each do |audit|
   .panel.panel-default
     .panel-heading
       %h3.panel-title
@@ -8,6 +8,8 @@
         = audit.startDate
         | End date:
         = audit.endDate
+        | Days to end:
+        = days_left(audit)
         = link_to "Edit", edit_audit_path(audit), remote: true, class: "btn btn-default"
         = link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
     .panel-body

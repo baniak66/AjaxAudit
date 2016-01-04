@@ -11,4 +11,8 @@ module ApplicationHelper
     }[flash_type.to_sym] || flash_type.to_s
   end
 
+  def days_left(audit)
+    (audit.endDate - Date.today).to_i
+  end
+
 end
