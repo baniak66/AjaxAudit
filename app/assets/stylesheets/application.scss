@@ -28,3 +28,18 @@
   background-color: white;
   color: black;
 }
+
+li {
+  a {
+    font-size: 15px;
+    color: black;
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
+
+.done{
+  text-decoration: line-through;
+}

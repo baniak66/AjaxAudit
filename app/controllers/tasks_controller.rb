@@ -13,9 +13,19 @@ class TasksController < ApplicationController
     @task.destroy
   end
 
+  def update
+    @audits = Audit.all
+    @task = Task.find(params[:id])
+    if @task.done?
+      @task.update_attributes(done: false)
+    else
+      @task.update_attributes(done: true)
+    end
+  end
+
 private
   def task_params
-    params.require(:task).permit(:descr, :audit_id)
+    params.require(:task).permit(:descr, :done, :audit_id)
   end
 
 end

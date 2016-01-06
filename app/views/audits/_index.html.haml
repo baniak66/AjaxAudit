@@ -17,6 +17,8 @@
         You haven't added any tasks
       -else
         %ul
-          - audit.tasks.each do |task|
-            %li #{task.descr} #{link_to glyph("remove-circle"), task_path(id: task.id), remote: true, method: :delete}
+          - audit.tasks.order(:created_at).each do |task|
+            %li{class: ("done" if task.done?)}
+              #{link_to task.descr, task_path(id: task.id), remote: true, method: :put}
+              #{link_to glyph("remove-circle"), task_path(id: task.id), remote: true, method: :delete}
       = render "tasks/form", audit: audit
