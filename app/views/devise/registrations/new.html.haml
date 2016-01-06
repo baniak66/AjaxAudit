@@ -1,0 +1,27 @@
+.container
+  .row.well
+    .col-sm-12
+      %h2 Register
+
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), class: 'form-horizontal', role: 'form') do |f|
+        = devise_error_messages!
+
+        .form-group.row
+          = f.label :email, class: 'col-sm-2 control-label'
+          .col-sm-5
+            = f.email_field :email, :autofocus => true, class: 'form-control'
+
+        .form-group.row
+          = f.label :password, class: 'col-sm-2 control-label'
+          .col-sm-5
+            = f.password_field :password, class: 'form-control'
+
+        .form-group.row
+          = f.label :password_confirmation,'Re-enter Password', class: 'col-sm-2 control-label'
+          .col-sm-5
+            = f.password_field :password_confirmation, class: 'form-control'
+
+        .row
+          .col-sm-7
+            .pull-right
+              = f.submit "Register", class: 'btn btn-success'
