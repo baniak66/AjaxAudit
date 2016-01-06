@@ -1,3 +1,5 @@
 .well
   %h2 You have #{pluralize(current_user.audits.all.count, 'audit')} active.
-  =link_to "New Audit", new_audit_path, remote: true, class: "btn btn-primary"
+  -unless current_user.audits.empty?
+    %h3 Neares deadline: #{@audits.order(:endDate).first.endDate} (#{@audits.order(:endDate).first.name})
+  =link_to "Add new audit", new_audit_path, remote: true, class: "btn btn-primary"
