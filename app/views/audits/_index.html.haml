@@ -4,17 +4,17 @@
       %h3.panel-title
         %b
           = audit.name
-        | Start date:
+        =t('audit.panel.startDate')
         = audit.startDate
-        | End date:
+        =t('audit.panel.endDate')
         = audit.endDate
-        | Days to end:
+        =t('audit.panel.daysLeft')
         = days_left(audit)
-        = link_to "Edit", edit_audit_path(audit), remote: true, class: "btn btn-default"
-        = link_to "Delete", audit_delete_path(audit), remote: true, class: "btn btn-danger"
+        = link_to t('audit.buttons.edit'), edit_audit_path(audit), remote: true, class: "btn btn-default"
+        = link_to t('audit.buttons.delete'), audit_delete_path(audit), remote: true, class: "btn btn-danger"
     .panel-body
       -if audit.tasks.empty?
-        You haven't added any tasks
+        = t('task.missing')
       -else
         %ul
           - audit.tasks.order(:created_at).each do |task|

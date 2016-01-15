@@ -1,0 +1,45 @@
+pl:
+  activerecord:
+   attributes:
+     audit:
+       name: "Kontrolowany:"
+       startDate: "Data rozpoczęcia:"
+       endDate: "Data zakończenia:"
+  audit:
+    buttons:
+      edit: "Edytuj"
+      delete: "Usuń"
+      new: "Dodaj nową kontrolę"
+    modal:
+      edit: "Edycja %{name}"
+      new: "Nowa kontrola"
+      deleteheader: "Usuń kontrolę"
+      deletebody: "Czy na pewno chcesz usunąć %{name}?"
+      acceptdelete: "Tak"
+      canceldelete: "Nie"
+      save: "Zapisz"
+      cancel: "Anuluj"
+    panel:
+      startDate: "| Data rozpoczęcia:"
+      endDate: "| Data zakończenia:"
+      daysLeft: "| Pozostało dni:"
+    counter:
+      active: "Kontrole w toku: %{count}"
+      deadline: "Najbliższy termin zakończenia: %{date} (%{name})"
+  task:
+    new: "Dodaj zadanie"
+    missing: "Nie dodałeś żadnych zadań"
+  header:
+    title: "Co dzisiaj?"
+    settings: "Ustawienia"
+    login: "Zaloguj"
+    logout: "Wyloguj"
+    signup: "Rejestracja"
+    menu:
+      language: "język"
+      pl: "polski"
+      en: "angielski"
+  welcome:
+    welcome: "Witaj!"
+    message: "Zaloguj się albo zarejestruj nowe konto aby przejść dalej."
+

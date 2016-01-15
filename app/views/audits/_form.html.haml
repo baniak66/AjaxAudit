@@ -12,5 +12,5 @@
       = f.label :endDate, class: "control-label"
       = f.date_field :endDate, class: "form-control"
     .modal-footer
-      = f.submit class: "btn btn-primary"
-      = link_to "Cancel", "#", class: "btn btn-default", data: {dismiss: "modal"}
+      = f.submit t('audit.modal.save') ,class: "btn btn-primary"
+      = link_to t('audit.modal.cancel'), "#", class: "btn btn-default", data: {dismiss: "modal"}

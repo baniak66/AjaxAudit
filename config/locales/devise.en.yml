@@ -60,3 +60,19 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  forms:
+    login: "Log in"
+    email: "Email"
+    password: "Password"
+    passconf: "Re-enter password"
+    passcurr: "Current password"
+    keepme: "Keep me login"
+    register: "Register"
+    delete: "Cancel my account"
+    unhappy: "Unhappy?"
+  buttons:
+    login: "Login"
+    register: "Register"
+    update: "Update"
+    delete: "Cancel my account"
+    back: "Back"

@@ -1,17 +1,17 @@
 .container
   .row.well
     .col-sm-12
-      %h2 Log in
+      %h2= t('forms.login')
 
       = form_for resource, as: resource_name, url: session_path(resource_name), class: 'form-horizontal' do |f|
 
         .form-group.row
-          = f.label :email, class: 'col-sm-2 control-label'
+          = f.label t('forms.email'), class: 'col-sm-2 control-label'
           .col-sm-5
             = f.email_field :email, :autofocus => true , class: 'form-control'
 
         .form-group.row
-          = f.label :password , class: 'col-sm-2 control-label'
+          = f.label t('forms.password'), class: 'col-sm-2 control-label'
           .col-sm-5
             = f.password_field :password , class: 'form-control'
 
@@ -21,8 +21,8 @@
               .checkbox
                 %label
                   = f.check_box :remember_me
-                  Keep me logged in
+                  = t('forms.keepme')
         .row
           .col-sm-7
             .pull-right
-              = f.submit "Sign in", class: 'btn-success btn'
+              = f.submit t('buttons.login'), class: 'btn-success btn'

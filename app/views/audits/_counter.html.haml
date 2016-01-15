@@ -1,5 +1,7 @@
 .well
-  %h2 You have #{pluralize(current_user.audits.all.count, 'audit')} active.
+  %h2= t('audit.counter.active', count: current_user.audits.all.count)
+  / %h2 You have #{pluralize(current_user.audits.all.count, 'audit')} active.
   -unless current_user.audits.empty?
-    %h3 Neares deadline: #{@audits.order(:endDate).first.endDate} (#{@audits.order(:endDate).first.name})
-  =link_to "Add new audit", new_audit_path, remote: true, class: "btn btn-primary"
+    %h3= t('audit.counter.deadline', date: @audits.order(:endDate).first.endDate, name: @audits.order(:endDate).first.name)
+    / %h3 Neares deadline: #{@audits.order(:endDate).first.endDate} (#{@audits.order(:endDate).first.name})
+  =link_to t('audit.buttons.new'), new_audit_path, remote: true, class: "btn btn-primary"

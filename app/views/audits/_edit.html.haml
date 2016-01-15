@@ -1,5 +1,5 @@
 .modal-dialog
   .modal-content
   .modal-header
-    %h3= "Editing #{@audit.name}"
+    %h3= t('audit.modal.edit', :name => @audit.name)
   = render "form"
