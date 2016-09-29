@@ -1,20 +1,22 @@
 class TasksController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
-    @audits = Audit.all
+    @audits = current_user.audits.all
     @task = Task.new(task_params)
     @task.audit_id = params[:audit_id]
     @task.save
   end
 
   def destroy
-    @audits = Audit.all
+    @audits = current_user.audits.all
     @task = Task.find(params[:id])
     @task.destroy
   end
 
   def update
-    @audits = Audit.all
+    @audits = current_user.audits.all
     @task = Task.find(params[:id])
     if @task.done?
       @task.update_attributes(done: false)
